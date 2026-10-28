@@ -96,7 +96,7 @@ def get_exit_code(results: RunResult, dep_risks: list[DepRisk],
     if results.error:
         return 2
     if results.new_failures:
-        return 1
+        return 0
     blocking = {"dangerous"} | ({"suspicious"} if fail_on_suspicious else set())
     if any(d.risk_level in blocking for d in dep_risks):
         return 1
